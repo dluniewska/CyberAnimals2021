@@ -52,14 +52,6 @@ public class LogoActivity extends AppCompatActivity {
         animals.add(goatImageView);
         animals.add(sheepImageView);
 
-//        catImageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LogoActivity.this, AnimalDetails.class);
-//                startActivity(intent);
-//                farmAnimal = new Animal(catImageView.getTag().toString());
-//            }
-//        });
 
 
         for (final ImageView animal : animals) {

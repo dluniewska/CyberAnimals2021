@@ -9,4 +9,13 @@
     <string name="rooster">Kogut</string>
     <string name="sheep">Owca</string>
     <string name="goat">Koza</string>
+    <string name="enCat">Cat</string>
+    <string name="enDog">Dog</string>
+    <string name="enHorse">Horse</string>
+    <string name="enCow">Cow</string>
+    <string name="enDuck">Duck</string>
+    <string name="enPig">Pig</string>
+    <string name="enRooster">Rooster</string>
+    <string name="enSheep">Sheep</string>
+    <string name="enGoat">Goat</string>
 </resources>
