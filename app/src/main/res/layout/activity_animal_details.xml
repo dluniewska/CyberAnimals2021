@@ -7,13 +7,48 @@
     tools:context=".AnimalDetails">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:id="@+id/animalImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:srcCompat="@drawable/cat" />
+
+    <Button
+        android:id="@+id/soundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posłuchaj!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="576dp" />
+
+    <TextView
+        android:id="@+id/polishTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="Kot"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/soundButton"
+        app:layout_constraintEnd_toStartOf="@+id/englishTextView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/englishTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="Cat"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/soundButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/polishTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
