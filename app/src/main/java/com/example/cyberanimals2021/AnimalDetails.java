@@ -2,22 +2,28 @@ package com.example.cyberanimals2021;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Half;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class AnimalDetails extends AppCompatActivity {
 
-    Button soundButton;
     TextView polishTextView;
     TextView englishTextView;
     ImageView animalImageView;
     String tag;
     MediaPlayer mediaPlayer;
+    ProgressBar progressBar;
+    int duration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +31,18 @@ public class AnimalDetails extends AppCompatActivity {
         setContentView(R.layout.activity_animal_details);
 
         tag = Animal.getTag();
+        progressBar = findViewById(R.id.progressBar);
+        polishTextView = findViewById(R.id.polishTextView);
+        englishTextView = findViewById(R.id.englishTextView);
+        animalImageView = findViewById(R.id.animalImageView);
         setImage();
         setName();
-
 
 //        Toast toast = Toast.makeText(this, tag, Toast.LENGTH_LONG);
 //        toast.show();
     }
 
     public void setName() {
-
-        polishTextView = findViewById(R.id.polishTextView);
-        englishTextView = findViewById(R.id.englishTextView);
 
         switch (tag) {
             case "0":
@@ -79,7 +85,6 @@ public class AnimalDetails extends AppCompatActivity {
     }
 
     public void setImage() {
-        animalImageView = findViewById(R.id.animalImageView);
         switch (tag) {
             case "0":
                 animalImageView.setImageResource(R.drawable.catphoto);
@@ -111,43 +116,78 @@ public class AnimalDetails extends AppCompatActivity {
         }
     }
 
+    public void duration(final MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+        duration = mediaPlayer.getDuration();
+        progressBar.setMax(duration);
+
+
+        final Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                    progressBar.setProgress(mediaPlayer.getCurrentPosition());
+                    handler.postDelayed(this, 50);
+            }
+
+        };
+        handler.postDelayed(runnable, 0);
+    }
+
+    public void end() {
+        if (mediaPlayer.getCurrentPosition() == duration) {
+            progressBar.setProgress(0);
+        }
+    }
+
+
 
     public void listen(View view) {
         switch (tag) {
             case "0":
                 mediaPlayer = MediaPlayer.create(this, R.raw.cat);
+                duration(mediaPlayer);
                 mediaPlayer.start();
+                end();
                 break;
             case "1":
                 mediaPlayer = MediaPlayer.create(this, R.raw.dog);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "2":
                 mediaPlayer = MediaPlayer.create(this, R.raw.horse);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "3":
                 mediaPlayer = MediaPlayer.create(this, R.raw.rooster);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "4":
                 mediaPlayer = MediaPlayer.create(this, R.raw.duck);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "5":
                 mediaPlayer = MediaPlayer.create(this, R.raw.cow);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "6":
                 mediaPlayer = MediaPlayer.create(this, R.raw.pig);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "7":
                 mediaPlayer = MediaPlayer.create(this, R.raw.goat);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
             case "8":
                 mediaPlayer = MediaPlayer.create(this, R.raw.sheep);
+                duration(mediaPlayer);
                 mediaPlayer.start();
                 break;
         }

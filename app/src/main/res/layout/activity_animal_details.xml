@@ -18,11 +18,18 @@
 
     <Button
         android:id="@+id/soundButton"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="100dp"
+        android:background="@android:color/holo_red_light"
         android:onClick="listen"
-        android:text="Posłuchaj!"
+        android:text="POSŁUCHAJ!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +39,9 @@
         android:id="@+id/polishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:text="Kot"
-        android:textSize="30sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/soundButton"
         app:layout_constraintEnd_toStartOf="@+id/englishTextView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -44,11 +50,25 @@
         android:id="@+id/englishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:text="Cat"
-        android:textSize="30sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/soundButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/polishTextView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:progress="0"
+        android:progressTint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soundButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
